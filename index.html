@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio Akhmad Ken Aufiqi Azzahid - Mahasiswa Demografi & Pegiat Musik">
+    <title>A.Ken — Portfolio</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- CSS kita -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Banner Under Construction -->
+    <div class="banner-wip">
+        🚧 Website ini masih dalam proses pengembangan 🚧
+    </div>
+    <!-- ========== NAVBAR ========== -->
+    <nav class="navbar" id="navbar">
+        <div class="container navbar__inner">
+            <!-- Logo -->
+            <a href="#" class="navbar__logo">A.Ken</a>
+
+            <!-- Menu Navigasi -->
+            <ul class="navbar__menu">
+                <li><a href="#tentang">Tentang</a></li>
+                <li><a href="#karya">Karya</a></li>
+                <li><a href="#kontak">Kontak</a></li>
+            </ul>
+
+            <!-- Hamburger Menu (untuk HP) -->
+            <button class="navbar__hamburger" id="hamburger" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ========== HERO SECTION ========== -->
+    <section class="hero" id="hero">
+        <div class="container hero__inner">
+            <!-- Teks Perkenalan (Kiri) -->
+            <div class="hero__text">
+                <p class="hero__greeting">Halo, Saya</p>
+                <h1 class="hero__name">Akhmad Ken Aufiqi Azzahid</h1>
+                <p class="hero__desc">
+                    Selamat datang di ruang digital saya. Mari jelajahi
+                    perjalanan, riset, dan karya-karya saya.
+                </p>
+                <a href="#kontak" class="btn btn--primary">Hubungi Saya</a>
+            </div>
+
+            <!-- Foto Profil (Kanan) -->
+            <div class="hero__image">
+                <!--
+                    GANTI "assets/img/profile.jpg" dengan nama file foto kamu.
+                    Taruh foto di folder assets/img/
+                -->
+                <img src="assets/img/Foto.png" alt="Foto Akhmad Ken Aufiqi Azzahid">
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== TENTANG SAYA ========== -->
+    <section class="tentang" id="tentang">
+        <div class="container">
+            <h2 class="section__title">Tentang Saya</h2>
+
+            <div class="tentang__grid">
+                <!-- Kolom Kiri: Deskripsi -->
+                <div class="tentang__desc">
+                    <h3 class="tentang__subtitle">Mahasiswa Demografi & Pegiat Musik</h3>
+                    <p>
+                        Saya adalah mahasiswa program D4 Demografi dan Pencatatan
+                        Sipil di Universitas Sebelas Maret. Kemampuan saya berpusat
+                        pada dua harmoni yang berbeda: menganalisis fenomena
+                        kependudukan dan mengeksplorasi komposisi serta aransemen
+                        musik.
+                    </p>
+                </div>
+
+                <!-- Kolom Kanan: Spesialisasi -->
+                <div class="tentang__skills">
+                    <h3 class="tentang__subtitle">Spesialisasi & Skillset</h3>
+                    <p>
+                        Sebagai individu yang memadukan sisi akademik dan seni
+                        musik, keahlian saya meliputi:
+                    </p>
+                    <ul>
+                        <li>
+                            <strong>Riset Kependudukan:</strong> Perancangan penelitian, analisis data
+                            regional, serta pemahaman prosedur hukum pencatatan sipil.
+                        </li>
+                        <li>
+                            <strong>Performa & Aransemen Musik:</strong> Permainan instrumen biola
+                            dan penulisan partitur/aransemen.
+                        </li>
+                        <li>
+                            <strong>Pengolahan Data:</strong> Terampil dalam tabulasi dan manajemen
+                            basis data menggunakan software (Microsoft Excel & Google
+                            Spreadsheet) untuk keperluan riset kependudukan.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+        <!-- ========== KARYA ========== -->
+    <section class="karya" id="karya">
+        <div class="container">
+            <h2 class="section__title">Karya</h2>
+
+            <!-- Tombol Filter -->
+            <div class="karya__filters">
+                <button class="karya__filter-btn active" data-filter="semua">Semua</button>
+                <button class="karya__filter-btn" data-filter="musik">Musik</button>
+                <button class="karya__filter-btn" data-filter="jurnal">Jurnal</button>
+            </div>
+
+            <!-- Grid Kartu Karya (diisi otomatis oleh JavaScript dari karya.json) -->
+            <div class="karya__grid" id="karya-grid">
+                <!-- Kartu akan di-render di sini oleh main.js -->
+                <p class="karya__loading">Memuat karya...</p>
+            </div>
+        </div>
+    </section>
+
+        <!-- ========== PENDIDIKAN ========== -->
+    <section class="pendidikan" id="pendidikan">
+        <div class="container">
+            <h2 class="section__title">Pendidikan</h2>
+
+            <div class="pendidikan__card">
+                <div class="pendidikan__icon">🎓</div>
+                <div class="pendidikan__info">
+                    <h3 class="pendidikan__univ">Universitas Sebelas Maret</h3>
+                    <p class="pendidikan__jurusan">D4 Demografi dan Pencatatan Sipil — Sekolah Vokasi</p>
+                    <p class="pendidikan__tahun">2024 — Sekarang</p>
+                    <p class="pendidikan__desc">
+                        Fokus pada riset kependudukan dan pengolahan data demografi.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== KONTAK ========== -->
+    <section class="kontak" id="kontak">
+        <div class="container">
+            <h2 class="section__title">Kontak</h2>
+            <p class="kontak__desc">
+                Tertarik untuk berkolaborasi atau ingin bertanya? Jangan ragu untuk menghubungi saya.
+            </p>
+
+            <div class="kontak__grid">
+                <!-- Email -->
+                <a href="-" class="kontak__item">
+                    <span class="kontak__icon">✉️</span>
+                    <span class="kontak__label">Email</span>
+                    <span class="kontak__value">-</span>
+                </a>
+
+                <!-- Instagram -->
+                <a href="-" target="_blank" class="kontak__item">
+                    <span class="kontak__icon">📸</span>
+                    <span class="kontak__label">Instagram</span>
+                    <span class="kontak__value">-</span>
+                </a>
+
+                <!-- LinkedIn -->
+                <a href="-" target="_blank" class="kontak__item">
+                    <span class="kontak__icon">💼</span>
+                    <span class="kontak__label">LinkedIn</span>
+                    <span class="kontak__value">-</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="footer">
+        <div class="container footer__inner">
+            <p>&copy; 2026 Akhmad Ken Aufiqi Azzahid. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript kita -->
+    <script src="js/main.js"></script>
+</body>
+</html>

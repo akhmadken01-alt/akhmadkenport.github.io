@@ -1,0 +1,721 @@
+/* =============================================
+   STYLE.CSS — Portfolio A.Ken
+   ============================================= */
+
+/* ---------- RESET & BASE ---------- */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+    color: #2d2d2d;
+    background-color: #ffffff;
+    -webkit-font-smoothing: antialiased;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+/* ---------- DESIGN TOKENS ---------- */
+:root {
+    /* Warna */
+    --color-primary: #f27370;       /* Coral/salmon — warna accent utama */
+    --color-primary-hover: #e85e5b; /* Coral lebih gelap untuk hover */
+    --color-primary-light: #fff0f0; /* Coral sangat muda untuk background */
+    --color-text: #2d2d2d;         /* Teks utama */
+    --color-text-light: #6b6b6b;   /* Teks sekunder */
+    --color-bg: #ffffff;           /* Background utama */
+    --color-bg-alt: #fafafa;       /* Background alternatif (section genap) */
+    --color-border: #e8e8e8;       /* Garis border */
+
+    /* Typography */
+    --font-body: 'Poppins', sans-serif;
+    --font-display: 'Poppins', serif;
+
+    /* Spacing */
+        --section-padding: 40px 0;
+    --container-width: 1100px;
+    --container-padding: 0 24px;
+
+    /* Effects */
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
+    --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.08);
+    --shadow-lg: 0 8px 30px rgba(0, 0, 0, 0.12);
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
+    --transition: 0.3s ease;
+}
+
+/* ---------- LAYOUT ---------- */
+.container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: var(--container-padding);
+}
+
+.section__title {
+    font-family: var(--font-body);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    margin-bottom: 24px;
+    letter-spacing: -0.02em;
+    padding-top: 40px;
+    border-top: 1px solid var(--color-border);
+}
+/* ---------- NAVBAR ---------- */
+.navbar {
+    position: fixed;
+    top: 38px;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid transparent;
+    transition: var(--transition);
+}
+
+/* Class ditambah via JS saat scroll */
+.navbar--scrolled {
+    border-bottom-color: var(--color-border);
+    box-shadow: var(--shadow-sm);
+}
+
+.navbar__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 70px;
+}
+
+.navbar__logo {
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--color-text);
+    letter-spacing: -0.02em;
+}
+
+.navbar__menu {
+    display: flex;
+    gap: 36px;
+}
+
+.navbar__menu a {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--color-text-light);
+    transition: color var(--transition);
+    position: relative;
+}
+
+.navbar__menu a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--color-primary);
+    transition: width var(--transition);
+}
+
+.navbar__menu a:hover {
+    color: var(--color-text);
+}
+
+.navbar__menu a:hover::after {
+    width: 100%;
+}
+
+/* Hamburger (HP) */
+.navbar__hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+}
+
+.navbar__hamburger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--color-text);
+    border-radius: 2px;
+    transition: var(--transition);
+}
+
+/* ---------- HERO ---------- */
+.hero {
+    padding: 90px 0 0;
+    min-height: auto;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+.hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    background: #e0e0e0;
+    z-index: 3;
+}
+
+.hero__inner {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 60px;
+}
+
+.hero__text {
+    flex: 1;
+    max-width: 500px;
+    padding-bottom: 80px;
+}
+
+.hero__greeting {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--color-text-light);
+    margin-bottom: 8px;
+}
+
+.hero__name {
+    font-family: var(--font-display);
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: var(--color-text);
+    line-height: 1.2;
+    letter-spacing: -0.03em;
+    margin-bottom: 16px;
+}
+
+.hero__desc {
+    font-size: 0.95rem;
+    color: var(--color-text-light);
+    margin-bottom: 32px;
+    max-width: 400px;
+}
+
+.hero__image {
+    flex-shrink: 0;
+    width: 350px;
+    height: 450px;
+    overflow: visible;
+    background: transparent;
+    position: relative;
+    z-index: 2;
+    margin-bottom: 0;
+    padding-bottom: 50px;
+}
+
+.hero__image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain;
+}
+
+/* ---------- BUTTON ---------- */
+.btn {
+    display: inline-block;
+    padding: 12px 28px;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 600;
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+    transition: all var(--transition);
+}
+
+.btn--primary {
+    background: var(--color-primary);
+    color: #ffffff;
+}
+
+.btn--primary:hover {
+    background: var(--color-primary-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(242, 115, 112, 0.4);
+}
+
+/* ---------- TENTANG ---------- */
+.tentang {
+    padding: var(--section-padding);
+    background: var(--color-bg);
+    margin-top: -1px;
+    padding-top: 16px;
+}
+
+
+.tentang__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+}
+
+.tentang__subtitle {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: 16px;
+    letter-spacing: -0.01em;
+}
+
+.tentang__desc p,
+.tentang__skills p {
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+    line-height: 1.8;
+}
+
+.tentang__skills ul {
+    margin-top: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.tentang__skills li {
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+    line-height: 1.7;
+    padding-left: 20px;
+    position: relative;
+}
+
+.tentang__skills li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: var(--color-primary);
+    font-weight: 700;
+    font-size: 1.2rem;
+    line-height: 1.5;
+}
+
+.tentang__skills li strong {
+    color: var(--color-text);
+}
+
+/* ---------- KARYA ---------- */
+.karya {
+    padding: var(--section-padding);
+}
+
+.karya__filters {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 48px;
+}
+
+.karya__filter-btn {
+    padding: 10px 28px;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 600;
+    border-radius: 50px;
+    border: 2px solid var(--color-primary);
+    background: transparent;
+    color: var(--color-primary);
+    cursor: pointer;
+    transition: all var(--transition);
+}
+
+.karya__filter-btn:hover {
+    background: var(--color-primary-light);
+}
+
+.karya__filter-btn.active {
+    background: var(--color-primary);
+    color: #ffffff;
+}
+
+.karya__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.karya__loading {
+    grid-column: 1 / -1;
+    text-align: center;
+    color: var(--color-text-light);
+    font-size: 0.9rem;
+    padding: 40px;
+}
+
+/* Kartu Karya */
+.karya__card {
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    background: var(--color-bg);
+    box-shadow: var(--shadow-sm);
+    transition: all var(--transition);
+    cursor: pointer;
+}
+
+.karya__card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-lg);
+}
+
+.karya__card-img {
+    width: 100%;
+    height: 200px;
+    background: linear-gradient(135deg, #e8e8e8 0%, #d4d4d4 100%);
+    overflow: hidden;
+}
+
+.karya__card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.karya__card:hover .karya__card-img img {
+    transform: scale(1.05);
+}
+
+.karya__card-body {
+    padding: 20px;
+}
+
+.karya__card-title {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: 8px;
+    letter-spacing: -0.01em;
+}
+
+.karya__card-desc {
+    font-size: 0.8rem;
+    color: var(--color-text-light);
+    line-height: 1.6;
+}
+
+.karya__card-tag {
+    display: inline-block;
+    margin-top: 12px;
+    padding: 4px 12px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-radius: 50px;
+    background: var(--color-primary-light);
+    color: var(--color-primary);
+}
+
+/* ---------- PENDIDIKAN ---------- */
+.pendidikan {
+    padding: var(--section-padding);
+    background: var(--color-bg);
+}
+
+.pendidikan__card {
+    display: flex;
+    align-items: flex-start;
+    gap: 24px;
+    padding: 36px;
+    background: var(--color-bg);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    max-width: 650px;
+}
+
+.pendidikan__icon {
+    font-size: 2.5rem;
+    flex-shrink: 0;
+    width: 64px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-primary-light);
+    border-radius: var(--radius-sm);
+}
+
+.pendidikan__univ {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: 4px;
+}
+
+.pendidikan__jurusan {
+    font-size: 0.9rem;
+    color: var(--color-primary);
+    font-weight: 500;
+    margin-bottom: 4px;
+}
+
+.pendidikan__tahun {
+    font-size: 0.8rem;
+    color: var(--color-text-light);
+    margin-bottom: 12px;
+}
+
+.pendidikan__desc {
+    font-size: 0.85rem;
+    color: var(--color-text-light);
+    line-height: 1.7;
+}
+
+/* ---------- KONTAK ---------- */
+.kontak {
+    padding: var(--section-padding);
+}
+
+.kontak__desc {
+    font-size: 0.95rem;
+    color: var(--color-text-light);
+    margin-top: -24px;
+    margin-bottom: 40px;
+    max-width: 500px;
+}
+
+.kontak__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.kontak__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    padding: 32px 20px;
+    background: var(--color-bg-alt);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--color-border);
+    transition: all var(--transition);
+    text-align: center;
+}
+
+.kontak__item:hover {
+    border-color: var(--color-primary);
+    background: var(--color-primary-light);
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+}
+
+.kontak__icon {
+    font-size: 1.8rem;
+}
+
+.kontak__label {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--color-text);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.kontak__value {
+    font-size: 0.85rem;
+    color: var(--color-text-light);
+}
+
+/* ---------- FOOTER ---------- */
+.footer {
+    padding: 24px 0;
+    border-top: 1px solid var(--color-border);
+}
+
+.footer__inner {
+    text-align: center;
+}
+
+.footer p {
+    font-size: 0.8rem;
+    color: var(--color-text-light);
+}
+/* ---------- BANNER WIP ---------- */
+.banner-wip {
+    background: #2d2d2d;
+    color: #ffffff;
+    text-align: center;
+    padding: 10px 16px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.03em;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1001;
+}
+/* ---------- RESPONSIVE (TABLET) ---------- */
+@media (max-width: 768px) {
+    .hero__inner {
+        flex-direction: column-reverse;
+        text-align: center;
+        gap: 40px;
+    }
+
+    .hero__text {
+        max-width: 100%;
+    }
+
+    .hero__desc {
+        max-width: 100%;
+    }
+
+    .hero__image {
+        flex-shrink: 0;
+        width: 320px;
+        height: 400px;
+        overflow: hidden;
+        background: transparent;
+    }
+
+    .tentang__grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .karya__grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .kontak__grid {
+        grid-template-columns: 1fr;
+        max-width: 350px;
+    }
+
+    .navbar__menu {
+        display: none;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(10px);
+        flex-direction: column;
+        align-items: center;
+        gap: 0;
+        padding: 16px 0;
+        border-bottom: 1px solid var(--color-border);
+        box-shadow: var(--shadow-md);
+    }
+
+    .navbar__menu.open {
+        display: flex;
+    }
+
+    .navbar__menu a {
+        padding: 14px 24px;
+        width: 100%;
+        text-align: center;
+    }
+
+    .navbar__menu a::after {
+        display: none;
+    }
+
+    .navbar__hamburger {
+        display: flex;
+    }
+
+    /* Animasi hamburger jadi X */
+    .navbar__hamburger.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .navbar__hamburger.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .navbar__hamburger.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -5px);
+    }
+}
+
+/* ---------- RESPONSIVE (HP) ---------- */
+@media (max-width: 480px) {
+    :root {
+        --section-padding: 24px 0;
+    }
+
+    .hero {
+        padding: 90px 0 0;
+        min-height: auto;
+        display: flex;
+        align-items: flex-end;
+        position: relative;
+        overflow: hidden;
+    }   
+
+    .hero__name {
+        font-size: 2rem;
+    }
+
+    .section__title {
+        font-size: 1.3rem;
+        margin-bottom: 32px;
+    }
+
+    .karya__grid {
+        grid-template-columns: 1fr;
+    }
+
+    .karya__filters {
+        flex-wrap: wrap;
+    }
+
+    .pendidikan__card {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+}
+
+/* ---------- SCROLL REVEAL ANIMATION ---------- */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
